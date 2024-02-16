@@ -291,16 +291,19 @@ def main():
     #Upload section
     with upload_section:
         st.header("Upload section:")
+        download_button = st.download_button(label='Sample data for analysis', data=open(f'Example_data.zip', 'rb'), file_name='Example_data.zip', mime='application/zip')
         col1, col2 = st.columns(2)
         
         uploaded_files1 = col1.file_uploader("Upload files for first line:", key="control", type=["txt"], accept_multiple_files=True)
         uploaded_files2 = col2.file_uploader("Upload files for second line:",key="mutant", type=["txt"], accept_multiple_files=True)
+        
         
         control_COs = pd.DataFrame(columns=["LibNum","Chr","Start","Stop","Crossover_sites","Size"])
         mutant_COs = pd.DataFrame(columns=["LibNum","Chr","Start","Stop","Crossover_sites","Size"])
         
         control_size = len(uploaded_files1)
         mutant_size = len(uploaded_files2)
+        
 
         try:
             control_COs,mutant_COs = get_data(uploaded_files1,uploaded_files2)
