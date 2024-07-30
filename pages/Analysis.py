@@ -49,7 +49,7 @@ def get_data(uploaded_files1,uploaded_files2):
 #Generate CO frequency plot
 @st.cache_data
 def CO_frequency_cache(control_COs,mutant_COs,max_chromosome,centromeres,chr_ends,color_line1,color_line2,color_centromere,label_control,label_mutant,legend_outside,tight_layout, slider_range, control_size, mutant_size,file_names):
-
+            time.sleep(2)
             occurrences_control, contr_dict_with_lib = occurrences(control_COs)
             occurrences_mutant, mutant_dict_with_lib = occurrences(mutant_COs)
             
@@ -154,7 +154,7 @@ def CO_frequency_cache(control_COs,mutant_COs,max_chromosome,centromeres,chr_end
 #Generate CO distribution in chromosomes
 @st.cache_data
 def CO_chromosome_cache(control_COs, mutant_COs,max_chromosome,centromeres,chr_ends,color_line1,color_line2,color_centromere,window_size,conv_val, advanced_option, file_names,control_size,mutant_size,label_control,label_mutant,legend_outside,tight_layout, max_xsticks=0, max_ysticks=0, insert_size="300 kb"):
-
+    time.sleep(2)
     ma = convolve_value(conv_val) 
 
 
